@@ -1,0 +1,11 @@
+FIle ir.model.access.csv pada folder security dibuat untuk membuat Access Right
+dan isi file tersebut berasal dari Class _name yang telah kita buat dan bisa di cek juga pada file XML kita.
+
+id = Konsep id yang sama seperti kita buat record dari xml, maka harus unik
+name = Nama access right, biasanya menggunakan separator titik
+model_id = Ini wajib sama sesuai nama model yang ingin kita berikan access right dengan tambahan imbuhan model_
+group_id = Nama group yang akan diberikan access right, sesuai dengan id xml nya. Tambahan :id karna ini merupakan field Many2one
+perm_read = Boolean yang menandakan permission membaca record
+perm_write = Boolean yang menandakan permission merubah record
+perm_create =Boolean yang menandakan permission membuat record
+perm_unlink = Boolean yang menandakan permission menghapus record

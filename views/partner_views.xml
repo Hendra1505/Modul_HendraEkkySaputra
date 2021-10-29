@@ -1,0 +1,34 @@
+<odoo>
+
+
+    <!-- Mengcustom View Form Partner -->
+
+    <record id="instruktur_res_partner_view_form" model="ir.ui.view">
+        <field name="name">instruktur.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Sessions">
+                    <group>
+                        <field name="instructor"/>
+                        <field name="session_line"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Membuat Action/Event Instructor -->
+
+    <record id="training_instructor_action" model="ir.actions.act_window">
+        <field name="name">Instructor</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('instructor', '=', True)]</field> <!-- parameter Domain yang berfungsi untuk memfilter data partner yang tampil hanya yang menjadi instruktur saja (field Instruktur di centang). -->
+        <field name="context">{'default_instructor': True}</field> <!-- Sedangkan parameter Context berfungsi untuk memberikan nilai otomatis True (tercentang) pada field Instruktur,  -->
+    </record>
+<!-- Pada Odoo, domain berfungsi sebagai filter suatu kondisi pada record, sebagaimana halnya syntax where pada SQL. Domain biasa di gunakan pada field-field relasi seperti Many2one, One2many, dan Many2many. Domain berbentuk list python (array), -->
+<!-- artinya saat kita bikin record baru dari menu Instructor maka otomatis dia menjadi instruktur, sedangkan jika dari menu Customer, Vendor dan Contatct, maka perlu di centang manual agar bisa jadi instruktur. -->
+
+</odoo>
